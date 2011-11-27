@@ -7,7 +7,7 @@
 
 Name:    felix-osgi-compendium
 Version: 1.4.0
-Release: 6
+Release: 8
 Summary: Felix OSGi R4 Compendium Bundle
 
 Group:   Development/Java
