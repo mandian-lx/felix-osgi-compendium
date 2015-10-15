@@ -3,7 +3,7 @@
 
 Name:    felix-osgi-compendium
 Version: 1.4.0
-Release: 16.1%{?dist}
+Release: 16.2
 Summary: Felix OSGi R4 Compendium Bundle
 
 License: ASL 2.0
