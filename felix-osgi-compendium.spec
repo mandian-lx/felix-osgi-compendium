@@ -1,14 +1,17 @@
 %{?_javapackages_macros:%_javapackages_macros}
+
 %global bundle org.osgi.compendium
 
-Name:    felix-osgi-compendium
-Version: 1.4.0
-Release: 16.2
-Summary: Felix OSGi R4 Compendium Bundle
+Name:           felix-osgi-compendium
+Version:        1.4.0
+Release:        25.1
+Summary:        Felix OSGi R4 Compendium Bundle
+License:        ASL 2.0
+Group:          Development/Java
+URL:            http://felix.apache.org
+BuildArch:      noarch
 
-License: ASL 2.0
-URL:     http://felix.apache.org
-Source0: http://www.apache.org/dist/felix/%{bundle}-%{version}-project.tar.gz
+Source0:        http://www.apache.org/dist/felix/%{bundle}-%{version}-project.tar.gz
 
 Patch0:         0001-Fix-servlet-api-dependency.patch
 Patch1:         0002-Fix-compile-target.patch
@@ -19,25 +22,17 @@ Patch3:         0004-Add-TARGET-property-to-ConfigurationPermission.patch
 # to a new version without the need for this patch, REMOVE it!
 Patch4:         0005-Add-getResourceURL-method-to-make-jbosgi-framework-h.patch
 
-BuildArch:      noarch
-
-BuildRequires: java-devel >= 1:1.6.0
-BuildRequires: jpackage-utils
-BuildRequires: maven-local
-BuildRequires: maven-surefire-provider-junit4
-BuildRequires: felix-osgi-core
-BuildRequires: felix-osgi-foundation
-BuildRequires: mvn(org.apache.felix:felix-parent:pom:)
-BuildRequires: tomcat-servlet-3.0-api
-BuildRequires: mockito
-
-Requires: java >= 1:1.6.0
+BuildRequires:  maven-local
+BuildRequires:  mvn(javax.servlet:javax.servlet-api)
+BuildRequires:  mvn(org.apache.felix:felix-parent:pom:)
+BuildRequires:  mvn(org.apache.felix:maven-bundle-plugin)
+BuildRequires:  mvn(org.apache.felix:org.osgi.core)
+BuildRequires:  mvn(org.apache.felix:org.osgi.foundation)
 
 %description
 OSGi Service Platform Release 4 Compendium Interfaces and Classes.
 
 %package javadoc
-
 Summary:        API documentation for %{name}
 
 %description javadoc
@@ -73,6 +68,34 @@ This package contains API documentation for %{name}.
 %doc LICENSE NOTICE
 
 %changelog
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.0-25
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.0-24
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Thu Jun 16 2016 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.4.0-23
+- Regenerate build-requires
+- Update to current packaging guidelines
+
+* Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.0-22
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.0-21
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.0-20
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Thu Jun 5 2014 Alexander Kurtakov <akurtako@redhat.com> 1.4.0-19
+- Switch to mvn style BR for servlet api.
+
+* Mon May 26 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.4.0-18
+- Remove BuildRequires on maven-surefire-provider-junit4
+
+* Tue Mar 04 2014 Stanislav Ochotnicky <sochotnicky@redhat.com> - 1.4.0-17
+- Use Requires: java-headless rebuild (#1067528)
+
 * Mon Aug 05 2013 Mat Booth <fedora@matbooth.co.uk> - 1.4.0-16
 - Update for latest guidelines
 
